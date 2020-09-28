@@ -29,7 +29,7 @@ pipeline {
 	post{
 		always{
 			sh '''
-			       echo ${BUILS_STATUS}
+			       echo ${currentBuild.currentResult}
 			   '''
 		}
 	}
