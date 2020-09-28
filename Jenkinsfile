@@ -32,7 +32,7 @@ pipeline {
                             export success_failure=${currentBuild.currentResult}
                             export job_base_name=${JOB_BASE_NAME}
                            '''
-                        sh """../status.sh \"${success_failure}\" """
+                        sh """./status.sh \"${currentBuild.currentResult}\" """
 		}
 	}
 }
