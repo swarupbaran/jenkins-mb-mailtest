@@ -28,7 +28,7 @@ pipeline {
 }
 	post{
 		always{
-                        sh """./status.sh \"${currentBuild.currentResult}\" """
+                        sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" """
 		}
 	}
 }
