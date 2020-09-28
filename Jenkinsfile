@@ -20,6 +20,7 @@ pipeline {
             steps {
                 sh '''
                       echo "Hello develop branch"
+		      SREEKANTH
                    '''    
             }
     }
