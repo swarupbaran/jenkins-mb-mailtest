@@ -26,9 +26,7 @@ pipeline {
 }
 	post{
 		always{
-			sh '''
-			     ${currentBuild.currentResult}			    
-			   '''
+			sh "echo ${currentBuild.currentResult}"
 		}
 	}
 }
