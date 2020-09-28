@@ -21,6 +21,7 @@ pipeline {
                 sh '''
                       echo "Hello develop branch"
                       echo ${WORKSPACE}
+		      echo ${BUILD_COMPLETE}
                    '''    
             }
     }
