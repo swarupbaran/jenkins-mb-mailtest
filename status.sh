@@ -1,4 +1,5 @@
 #!/bin/bash -xe
+
 #success_failure=${currentBuild.currentResult}
 #echo $success_failure
 #echo "Hello"
@@ -12,4 +13,4 @@
 #job_base_name=$2
 
 echo $success_failure
-echo $job_base_name
+#echo $job_base_name
