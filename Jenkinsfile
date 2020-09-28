@@ -21,7 +21,8 @@ pipeline {
                 sh '''
                       echo "Hello develop branch"
                       echo ${WORKSPACE}
-		      echo ${BUILD_COMPLETE}
+		      echo ${UPSTREAM_BUILD_DIR}
+		      echo ${UPSTREAM_BUILD_NR}
                    '''    
             }
     }
