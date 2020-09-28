@@ -31,6 +31,7 @@ pipeline {
 			sh "export success_failure=${currentBuild.currentResult}"
                         sh "export job_base_name=${JOB_BASE_NAME}"
                         sh "echo '$job_base_name'"
+                        sh "./status,sh '$success_failure' '$job_base_name'"
 		}
 	}
 }
