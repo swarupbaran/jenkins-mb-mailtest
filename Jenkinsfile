@@ -20,7 +20,8 @@ pipeline {
             steps {
                 sh '''
                       echo "Hello develop branch"
-		      SREEKANTH
+		      echo ${JOB_NAME}
+		      echo ${JOB_BASE_NAME}
                    '''    
             }
     }
