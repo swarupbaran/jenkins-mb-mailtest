@@ -28,8 +28,8 @@ pipeline {
 }
 	post{
 		always{
-			sh "./status.sh"
-			sh "echo ${currentBuild.currentResult}"
+			sh "export success_failure=${currentBuild.currentResult}"
+                        sh "./status.sh"
 		}
 	}
 }
