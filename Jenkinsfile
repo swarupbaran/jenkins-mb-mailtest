@@ -1,4 +1,3 @@
-def result = manager.build.result
 pipeline {
     agent any
 
