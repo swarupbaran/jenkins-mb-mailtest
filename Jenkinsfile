@@ -30,7 +30,8 @@ pipeline {
 	post{
 		always{
 			sh '''
-			       echo ${result}
+			       ./status.sh
+			       echo ${STATUS}
 			   '''
 		}
 	}
