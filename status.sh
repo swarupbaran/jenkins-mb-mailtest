@@ -1,5 +1,5 @@
-success_failure=${currentBuild.currentResult}
-echo $success_failure
+#success_failure=${currentBuild.currentResult}
+#echo $success_failure
 echo "${env.currentBuild.currentResult}"
 echo "${currentBuild.currentResult}"
 
