@@ -9,7 +9,6 @@ pipeline {
             steps {
                 sh '''
                       echo "Hello master branch"
-                      echo ${WORKSPACE}
                    '''    
             }
         }
