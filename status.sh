@@ -1,4 +1,4 @@
-#!/bin/bash -xe
+#!/bin/bash
 
 #success_failure=${currentBuild.currentResult}
 #echo $success_failure

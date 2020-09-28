@@ -28,10 +28,6 @@ pipeline {
 }
 	post{
 		always{
-			sh '''
-                            export success_failure=${currentBuild.currentResult}
-                            export job_base_name=${JOB_BASE_NAME}
-                           '''
                         sh """./status.sh \"${currentBuild.currentResult}\" """
 		}
 	}
