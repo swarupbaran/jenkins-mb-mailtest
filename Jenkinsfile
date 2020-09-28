@@ -32,4 +32,6 @@ pipeline {
 			       BUILD_STATUS=$(curl --silent ${BUILD_URL}api/json | jq -r '.result')
 			       echo ${BUILS_STATUS}
 			   '''
+		}
+	}
 }
