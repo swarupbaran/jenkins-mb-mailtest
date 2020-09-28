@@ -1,3 +1,4 @@
+def result = manager.build.result
 pipeline {
     agent any
 
@@ -29,7 +30,7 @@ pipeline {
 	post{
 		always{
 			sh '''
-			       echo ${currentBuild.currentResult}
+			       echo ${result}
 			   '''
 		}
 	}
