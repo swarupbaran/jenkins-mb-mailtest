@@ -20,9 +20,6 @@ pipeline {
             steps {
                 sh '''
                       echo "Hello develop branch"
-                      echo ${WORKSPACE}
-		      echo ${UPSTREAM_BUILD_DIR}
-		      echo ${UPSTREAM_BUILD_NR}
                    '''    
             }
     }
