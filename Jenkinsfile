@@ -28,6 +28,7 @@ pipeline {
 }
 	post{
 		always{
+			sh "./status.sh"
 			sh "echo ${currentBuild.currentResult}"
 		}
 	}
