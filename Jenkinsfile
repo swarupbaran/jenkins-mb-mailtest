@@ -31,7 +31,7 @@ pipeline {
                         sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" """
                         sh "echo $file_name"
 		}
-                always{
+                success{
                         sh "rm /home/indiumsoftware/$file_name.html"
                 }
 	}
