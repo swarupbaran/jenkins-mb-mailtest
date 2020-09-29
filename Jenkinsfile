@@ -29,7 +29,7 @@ pipeline {
 }
 	post{
 		always{                        
-                        sh ''' export filenames=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+                        sh ''' export filename=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
                                echo $filename
                            '''
                         sh """ ./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" \"${filename}\" """
