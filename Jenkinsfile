@@ -22,6 +22,7 @@ pipeline {
                 sh '''
                       echo "Hello develop branch"           
                       echo $filename
+                      echo "HELLO"
                    '''    
             }
     }
