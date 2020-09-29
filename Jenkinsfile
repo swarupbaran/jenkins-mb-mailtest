@@ -33,7 +33,12 @@ pipeline {
                         sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" \"${filename}\" """    
 		}
                 success{
-                       sh ''' rm /var/lib/jenkins/workspace/\"${filename}\"_uat.html '''
+                       script{
+                           echo "Hello"
+                       }
+                       script{
+                           rm /var/lib/jenkins/workspace/\"${filename}\"_uat.html
+                       }
                 }
 	}
 }
