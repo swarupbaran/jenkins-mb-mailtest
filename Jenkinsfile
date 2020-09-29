@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        filename=sh(returnStdout: true, script: sh '''cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1''')
+        filename=sh(returnStdout: true, script: 'RANDOM')
     }
     stages {
         stage ('Compile Stage') {
