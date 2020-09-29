@@ -2,12 +2,10 @@
 
 success_failure=$1
 job_base_name=$2
-filename=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-export file_name=$filename
-echo $file_name
+filename=$3
 echo $success_failure
 echo $job_base_name
-echo $file_name
+echo $filename
 {
 echo "<!DOCTYPE html>"
 echo "<html>"
