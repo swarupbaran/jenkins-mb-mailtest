@@ -32,7 +32,7 @@ pipeline {
 
 		}
                 success{
-                        sh "rm /var/lib/jenkins/workspace/$filename.html"
+                        sh '''rm /var/lib/jenkins/workspace/\"${filename}".html'''
                 }
 	}
 }
