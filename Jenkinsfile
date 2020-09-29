@@ -27,7 +27,7 @@ pipeline {
 	post{
 		always{
                         sh ''' \$filename=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) '''
-                        sh '''echo \"${filename}"'''                        
+                        sh '''echo \"$filename"'''                        
 		}
                 success{
                         sh "rm /var/lib/jenkins/workspace/$filename.html"
