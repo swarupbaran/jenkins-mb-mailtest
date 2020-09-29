@@ -22,13 +22,14 @@ pipeline {
             steps {
                 sh '''
                       echo "Hello develop branch"
+           
                    '''    
             }
     }
 }
 	post{
 		always{                        
-                        sh ''' export filename=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+                        sh ''' export filenames=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
                                echo $filename
                                ./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" \"${filename}\"
                            '''
