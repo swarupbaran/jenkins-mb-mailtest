@@ -27,11 +27,10 @@ pipeline {
 	post{
 		always{
                         sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" """
-                        sh "echo $file_name"
                         sh "echo $filename"
 		}
                 success{
-                        sh "rm /var/lib/jenkins/workspace/$file_name.html"
+                        sh "rm /var/lib/jenkins/workspace/$filename.html"
                 }
 	}
 }
