@@ -36,7 +36,7 @@ pipeline {
                       script {
 			if(env.BRANCH_NAME == "develop") {
                         environment{
-                           file_name = /var/lib/jenkins/workspace/${filename}
+                           file_name = /var/lib/jenkins/workspace/\"${filename}\"
                         }
                         sh ''' echo \"${file_name}\" '''
 			emailext(
