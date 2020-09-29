@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment{
+        filename
+    }
     stages {
         stage ('Compile Stage') {
 	    when {

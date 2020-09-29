@@ -2,11 +2,11 @@
 
 success_failure=$1
 job_base_name=$2
-filename=$3
+file_name=$3
 echo "Hello"
 echo $success_failure
 echo $job_base_name
-echo $filename
+echo $file_name
 {
 echo "<!DOCTYPE html>"
 echo "<html>"
@@ -20,6 +20,6 @@ echo "<p>My first paragraph.</p>"
 
 echo "</body>"
 echo "</html>"
-} > /var/lib/jenkins/workspace/${filename}_uat.html
+} > /var/lib/jenkins/workspace/${file_name}_uat.html
  
 
