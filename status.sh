@@ -4,6 +4,7 @@ success_failure=$1
 job_base_name=$2
 filename=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 export file_name=$filename
+echo $file_name
 echo $success_failure
 echo $job_base_name
 echo $file_name
@@ -20,4 +21,4 @@ echo "<p>My first paragraph.</p>"
 
 echo "</body>"
 echo "</html>"
-} > $filename.html
+} > /var/lib/jenkins/workspace/$filename.html
