@@ -20,4 +20,4 @@ echo "<p>My first paragraph.</p>"
 
 echo "</body>"
 echo "</html>"
-} > /home/$file_name.html
+} > /var/lib/jenkins/workspace/$file_name.html
