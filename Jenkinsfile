@@ -32,8 +32,8 @@ pipeline {
                         sh ''' echo $filename '''
                                                 
                         script{
-                               sh ''' filename = $(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) '''
-                               filename=$filename
+                               sh ''' export file_name = $(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) '''
+                               filename = $file_name
                         }
                          
                         sh ''' echo $filename '''
