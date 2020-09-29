@@ -19,4 +19,4 @@ echo "<p>My first paragraph.</p>"
 
 echo "</body>"
 echo "</html>"
-} > $file_name.html
+} > ${file_name}.html
