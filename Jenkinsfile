@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-       filename="file"
+       filename=""
     }
     stages {
         stage ('Compile Stage') {
