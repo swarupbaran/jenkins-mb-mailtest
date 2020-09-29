@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-       filename="file"
+       filename=sh(returnStdout: true, script: 'date')
     }
     stages {
         stage ('Compile Stage') {
@@ -32,10 +32,7 @@ pipeline {
                                                 
                         script{
                                sh ''' export file_name = $(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) '''
-			       
-                               file_name = sh( returnStdout: true, script: 'date')
-                               echo $file_name
-                        }
+                              }
                          
                         sh ''' echo $filename '''
 
