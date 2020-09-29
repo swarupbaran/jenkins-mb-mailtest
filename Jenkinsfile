@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment{
-       filename=sh(returnStdout: true, script: 'date')
-    }
     stages {
         stage ('Compile Stage') {
 	    when {
@@ -28,9 +25,7 @@ pipeline {
 }
 	post{
 		always{
-                        sh ''' echo $filename '''
-                         
-                        sh ''' \"$filename\"=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) '''
+                        sh ''' \"$filename\" $(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) '''
                    
                         sh ''' echo $filename '''
 
