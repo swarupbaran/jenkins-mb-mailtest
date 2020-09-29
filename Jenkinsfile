@@ -23,6 +23,7 @@ pipeline {
             steps {
                 sh '''
                       echo "Hello develop branch"           
+                      echo $filename
                    '''    
             }
     }
