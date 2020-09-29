@@ -33,7 +33,6 @@ pipeline {
                                                 
                         script{
                                filename = "Hello Arun"
-                               echo $filename
                                echo ${filename}
                         }
                          
