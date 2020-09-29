@@ -1,7 +1,8 @@
-def filename=""
 pipeline {
     agent any
-
+    environment{
+       filename="file"
+    }
     stages {
         stage ('Compile Stage') {
 	    when {
