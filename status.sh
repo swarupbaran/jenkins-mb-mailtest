@@ -3,6 +3,7 @@
 success_failure=$1
 job_base_name=$2
 filename=$3
+echo "Hello"
 echo $success_failure
 echo $job_base_name
 echo $filename
