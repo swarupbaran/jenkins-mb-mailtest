@@ -32,7 +32,8 @@ pipeline {
                         sh ''' echo $filename '''
                                                 
                         script{
-                               filename="Hello Arun"
+                               filename = "Hello Arun"
+                               echo $filename
                                echo ${filename}
                         }
                          
