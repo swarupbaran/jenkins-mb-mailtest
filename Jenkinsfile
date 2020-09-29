@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        filename=sh(returnStdout: true, script: 'RANDOM')
+        filename=sh(returnStdout: true, script: 'echo $RANDOM')
     }
     stages {
         stage ('Compile Stage') {
