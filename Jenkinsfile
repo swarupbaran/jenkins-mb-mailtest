@@ -33,10 +33,28 @@ pipeline {
                         sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" \"${filename}\" """    
 		}
                 success{
-                       script{
-                           echo "Hello"
-                       }
-                       sh ''' rm /var/lib/jenkins/workspace/\"${filename}\"_uat.html'''
+                      script {
+			if(env.BRANCH_NAME == "develop") {
+			emailext(
+			subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
+			body: '${FILE,path="/var/lib/jenkins/workspace/\\"${filename}\"_dev.html"}',
+			to: "sreekanthtagirise@gmail.com",
+			mimeType: 'text/html'
+			)
+			}
+			sh ''' rm /home/jenkins/\"${filename}\"_dev.html'''
+		     }
+
+		     script {
+			if(env.BRANCH_NAME == "master") {
+			emailext(
+			subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
+			body: '${FILE,path="/var/lib/jenkins/workspace/\\"${filename}\"_master.html"}',
+			to: "sreekanthtagirise@gmail.com",
+			mimeType: 'text/html'
+			)
+			}
+                    }
                 }
 	}
 }
