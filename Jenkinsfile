@@ -1,3 +1,4 @@
+def num = Math.abs(new Random().nextInt() % 600 + 1)
 pipeline {
     agent any
     environment{
@@ -22,6 +23,7 @@ pipeline {
             steps {
                 sh '''
                       echo "Hello develop branch"
+                      echo $num
            
                    '''    
             }
@@ -33,6 +35,7 @@ pipeline {
                                                 
                         script{
                                sh ''' export file_name = $(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) '''
+			       
                                filename = $file_name
                         }
                          
