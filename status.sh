@@ -20,4 +20,4 @@ echo "<p>My first paragraph.</p>"
 
 echo "</body>"
 echo "</html>"
-} > /home/indiumsoftware/$file_name.html
+} > /home/$file_name.html
