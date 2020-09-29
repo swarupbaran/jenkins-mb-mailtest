@@ -26,13 +26,11 @@ pipeline {
 }
 	post{
 		always{                        
-                        sh ''' echo ${BUILD_URL} '''
-                        sh """ echo \"${currentBuild.durationString.replace(' and counting', '')}\" """
-                        sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\"  """
-
+                        sh ''' export filename=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+                               ./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" $filename
+                           '''
 		}
                 success{
-                        sh '''rm /var/lib/jenkins/workspace/*_uat.html'''
                 }
 	}
 }
