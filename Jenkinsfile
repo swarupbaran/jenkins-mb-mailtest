@@ -42,7 +42,7 @@ pipeline {
 			mimeType: 'text/html'
 			)
 			}
-			sh ''' rm /home/jenkins/\"${filename}\"_dev.html'''
+			sh ''' rm /var/lib/jenkins/workspace/\"${filename}\"_dev.html'''
 		     }
 
 		     script {
