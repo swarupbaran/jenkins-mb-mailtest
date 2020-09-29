@@ -30,7 +30,5 @@ pipeline {
                                ./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" $filename
                            '''
 		}
-                success{
-                }
 	}
 }
