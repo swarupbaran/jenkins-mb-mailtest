@@ -26,7 +26,8 @@ pipeline {
 }
 	post{
 		always{
-                        sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" """
+                        sh "export filename=$(echo $RANDOM)"
+                        sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" \"${filename}\" """
                         sh "echo $filename"
 		}
                 success{
