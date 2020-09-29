@@ -1,3 +1,4 @@
+def filename=""
 pipeline {
     agent any
 
