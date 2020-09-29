@@ -3,6 +3,7 @@
 success_failure=$1
 job_base_name=$2
 file_name=$3
+echo $file_name
 {
 echo "<!DOCTYPE html>"
 echo "<html>"
