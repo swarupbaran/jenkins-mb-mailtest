@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment{
-        filename=sh(returnStdout: true, script: 'cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1'.execute().text)
-    }
     stages {
         stage ('Compile Stage') {
 	    when {
@@ -28,7 +25,9 @@ pipeline {
 }
 	post{
 		always{
-                        sh """ ./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" \"${filename}\" """
+                        sh """ \"$filename\" $(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+                               ./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" \"${filename}\" 
+                           """
 		}
 	}
 }
