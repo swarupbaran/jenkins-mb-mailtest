@@ -36,9 +36,7 @@ pipeline {
                        script{
                            echo "Hello"
                        }
-                       script{
-                           rm /var/lib/jenkins/workspace/$filename_uat.html
-                       }
+                       sh ''' rm /var/lib/jenkins/workspace/\"${filename}\"_uat.html'''
                 }
 	}
 }
