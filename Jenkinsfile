@@ -29,7 +29,7 @@ pipeline {
                    
                         sh ''' echo $filename '''
 
-                        sh """ ./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" $filename """
+                        sh """ ./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" \"${filename}\" """
                            
 		}
 	}
