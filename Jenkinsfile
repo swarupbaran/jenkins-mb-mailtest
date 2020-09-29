@@ -27,7 +27,7 @@ pipeline {
 	post{
 		always{                        
                         sh ''' echo ${BUILD_URL} '''
-                        sh ''' echo ${BUILD_DURATION} '''
+                        sh ''' echo ${currentBuild.durationString} '''
                         sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\"  """
 
 		}
