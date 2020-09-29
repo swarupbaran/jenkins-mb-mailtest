@@ -33,10 +33,10 @@ pipeline {
                                                 
                         script{
                                filename="Hello Arun"
-                               echo $filename
+                               echo ${filename}
                         }
                          
-                        sh ''' echo $filename '''
+                        sh ''' echo ${filename} '''
 
                         sh """ ./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" \"${filename}\" """
                            
