@@ -20,8 +20,6 @@ pipeline {
             steps {
                 sh '''
                       echo "Hello develop branch"
-		      echo ${JOB_NAME}
-		      echo ${JOB_BASE_NAME}
                    '''    
             }
     }
@@ -30,9 +28,10 @@ pipeline {
 		always{
                         sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" """
                         sh "echo $file_name"
+                        sh "echo $filename"
 		}
                 success{
-                        sh "rm /home/indiumsoftware/$file_name.html"
+                        sh "rm /var/lib/jenkins/workspace/$file_name.html"
                 }
 	}
 }
