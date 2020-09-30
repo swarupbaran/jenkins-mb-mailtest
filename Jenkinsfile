@@ -36,6 +36,7 @@ pipeline {
                       script {
 			if(env.BRANCH_NAME == "develop") {
                         sh ''' echo ${filename} '''
+                        sh ''' echo ${ENV, var="filename"} '''
 			emailext(
 			subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
 			body: '${FILE, path="/var/lib/jenkins/workspace/*.html"}',
