@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         filename = sh(script: "cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1", returnStdout: true).trim()
+        env.GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
     }
     stages {
         stage ('Compile Stage') {
@@ -23,6 +24,7 @@ pipeline {
                 sh '''
                       echo "Hello develop branch"           
                       echo $filename
+                      echo $GIT_REPO_NAME
                       echo "HELLO"
                    '''    
             }
@@ -36,7 +38,6 @@ pipeline {
                       script {
 			if(env.BRANCH_NAME == "develop") {
                         sh ''' echo ${filename} '''
-                        sh ''' echo ${ENV, var="filename"} '''
 			emailext(
 			subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
 			body: '${FILE, path="/var/lib/jenkins/workspace/*.html"}',
