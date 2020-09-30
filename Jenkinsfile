@@ -38,7 +38,7 @@ pipeline {
                         sh ''' echo ${filename} '''
 			emailext(
 			subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
-			body: '${SCRIPT, template="/var/lib/jenkins/workspace/\\"${filename}\".html"}',
+			body: '${SCRIPT, template="/var/lib/jenkins/workspace/*.html"}',
 			to: "sreekanthtagirise@gmail.com",
 			mimeType: "text/html"
 			)
