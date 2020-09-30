@@ -2,7 +2,6 @@ pipeline {
     agent any
     environment {
         filename = sh(script: "cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1", returnStdout: true).trim()
-        env.GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
     }
     stages {
         stage ('Compile Stage') {
@@ -21,6 +20,7 @@ pipeline {
             }
 
             steps {
+                env.GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                 sh '''
                       echo "Hello develop branch"           
                       echo $filename
