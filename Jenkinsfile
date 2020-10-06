@@ -24,7 +24,7 @@ pipeline {
                       echo "Hello develop branch"           
                       echo $JOB_BASE_NAME
                       echo $filename
-                      echo $GIT_REPO_NAME
+                      echo $GIT_URL
                       echo "HELLO"
                    '''    
             }
