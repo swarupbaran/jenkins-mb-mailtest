@@ -42,24 +42,27 @@ pipeline {
        				sh ''' echo ${filename} '''
 				emailext(
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
-				body: '${FILE, path="/var/lib/jenkins/workspace/*.html"}',
+				body: '${FILE, path="/var/lib/jenkins/workspace/develop.html"}',
 				to: "sreekanthtagirise@gmail.com",
 				mimeType: "text/html"
 				)
 			}
 	              }	
-			sh ''' rm /var/lib/jenkins/workspace/\"${filename}\".html'''
+			sh ''' rm /var/lib/jenkins/workspace/develop.html'''
 		     }
 
 		     script {
-			if(env.BRANCH_NAME == "master") {
-			emailext(
-			subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
-			body: '${FILE,path="/var/lib/jenkins/workspace/\\"${filename}\"_master.html"}',
-			to: "sreekanthtagirise@gmail.com",
-			mimeType: 'text/html'
-			)
+			if(env.GIT_REP_NAME == "jenkins-mb-mailtest){
+				if(env.BRANCH_NAME == "master") {
+					emailext(
+					subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
+					body: '${FILE,path="/var/lib/jenkins/workspace/master.html"}',
+					to: "sreekanthtagirise@gmail.com",
+					mimeType: 'text/html'
+					)
+				}
 			}
+			   sh ''' rm /var/lib/jenkins/workspace/master.html'''
                     }
                 }
 	}

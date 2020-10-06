@@ -22,7 +22,7 @@ echo "<p>My first paragraph.</p>"
 
 echo "</body>"
 echo "</html>"
-} > /var/lib/jenkins/workspace/${file_name}.html
+} > /var/lib/jenkins/workspace/develop.html
 elif [[ $job_base_name == "master" ]]
 then
 {
@@ -38,7 +38,7 @@ echo "<p>My first paragraph.</p>"
 
 echo "</body>"
 echo "</html>"
-} > /var/lib/jenkins/workspace/${file_name}_master.html
+} > /var/lib/jenkins/workspace/master.html
 fi
  
 
