@@ -46,13 +46,13 @@ pipeline {
 				to: "sreekanthtagirise@gmail.com",
 				mimeType: "text/html"
 				)
+				sh ''' rm /var/lib/jenkins/workspace/develop.html'''
+				}
 			}
-	              }	
-			sh ''' rm /var/lib/jenkins/workspace/develop.html'''
 		     }
 
 		     script {
-			if(env.GIT_REP_NAME == "jenkins-mb-mailtest"){
+			if(env.GIT_REPO_NAME == "jenkins-mb-mailtest"){
 				if(env.BRANCH_NAME == "master") {
 					emailext(
 					subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
@@ -60,9 +60,9 @@ pipeline {
 					to: "sreekanthtagirise@gmail.com",
 					mimeType: 'text/html'
 					)
+				sh ''' rm /var/lib/jenkins/workspace/master.html'''
 				}
 			}
-			   sh ''' rm /var/lib/jenkins/workspace/master.html'''
                     }
                 }
 	}
