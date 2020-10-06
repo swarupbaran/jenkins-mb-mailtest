@@ -37,15 +37,17 @@ pipeline {
 		}
                 success{
                       script {
-			if(env.BRANCH_NAME == "develop") {
-                        sh ''' echo ${filename} '''
-			emailext(
-			subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
-			body: '${FILE, path="/var/lib/jenkins/workspace/*.html"}',
-			to: "sreekanthtagirise@gmail.com",
-			mimeType: "text/html"
-			)
+			if(env.GIT_REPO_NAME == "jenkins-mb-mailtest"){
+				if(env.BRANCH_NAME == "develop") {
+       				sh ''' echo ${filename} '''
+				emailext(
+				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
+				body: '${FILE, path="/var/lib/jenkins/workspace/*.html"}',
+				to: "sreekanthtagirise@gmail.com",
+				mimeType: "text/html"
+				)
 			}
+	              }	
 			sh ''' rm /var/lib/jenkins/workspace/\"${filename}\".html'''
 		     }
 
