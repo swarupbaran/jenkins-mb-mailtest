@@ -52,7 +52,7 @@ pipeline {
 		     }
 
 		     script {
-			if(env.GIT_REP_NAME == "jenkins-mb-mailtest){
+			if(env.GIT_REP_NAME == "jenkins-mb-mailtest"){
 				if(env.BRANCH_NAME == "master") {
 					emailext(
 					subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
