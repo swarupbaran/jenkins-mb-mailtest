@@ -25,6 +25,7 @@ pipeline {
                       echo $JOB_BASE_NAME
                       echo $filename
                       echo $GIT_REPO_NAME
+                      echo "HELLO"
                    '''    
             }
     }
