@@ -20,13 +20,11 @@ pipeline {
             }
 
             steps {
-                env.GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
                 sh '''
                       echo "Hello develop branch"           
                       echo $JOB_BASE_NAME
                       echo $filename
                       echo $GIT_REPO_NAME
-                      echo "HELLO"
                    '''    
             }
     }
