@@ -17,7 +17,7 @@ pipeline {
         }
         stage ('Testing Stage') {
              when {
-                branch 'develop'
+                expression { BRANCH_NAME != 'master' && BRANCH_NAME == 'develop' }
             }
 
             steps {
