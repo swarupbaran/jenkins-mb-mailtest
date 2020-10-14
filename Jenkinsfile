@@ -46,7 +46,7 @@ pipeline {
        				
 				sh 'echo "my full path is ${fullFileName}"'
 				//sh 'echo cat ${fullFileName}'
-					sh '$emailFileContent = $(cat "/home/jenkins/${filename}.html")'
+					sh '$emailFileContent = cat "/home/jenkins/${filename}.html"'
 				sh  'echo "my content is $emailFileContent"'
 				emailext(
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
