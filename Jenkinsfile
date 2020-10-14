@@ -48,7 +48,7 @@ pipeline {
 				emailext(
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
 				//body: "${FILE, path=$variable}",
-				body: '''${SCRIPT, template="my-email.template"}''',
+				body: '''${SCRIPT, template="$variable"}''',
 				to: "swarup.baran@lamresearch.com",
 				mimeType: "text/html"
 				)
