@@ -13,7 +13,7 @@ then
 echo "<!DOCTYPE html>"
 echo "<html>"
 echo "<head>"
-echo "<title>Page Title</title>"
+echo "<title>DEVELOP BRANCH</title>"
 echo "</head>"
 echo "<body>"
 
@@ -29,7 +29,7 @@ then
 echo "<!DOCTYPE html>"
 echo "<html>"
 echo "<head>"
-echo "<title>Page Title</title>"
+echo "<title>MASTER BRANCH</title>"
 echo "</head>"
 echo "<body>"
 
