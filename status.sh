@@ -17,12 +17,12 @@ echo "<title>Page Title</title>"
 echo "</head>"
 echo "<body>"
 
-echo "<h1>My First Heading</h1>"
-echo "<p>My first paragraph.</p>"
+echo "<h1>Develop Branch</h1>"
+echo "<p>This is from Develop Branch</p>"
 
 echo "</body>"
 echo "</html>"
-} > /var/lib/jenkins/workspace/develop.html
+} > /var/jenkins_home/workspace/develop.html
 elif [[ $job_base_name == "master" ]]
 then
 {
@@ -33,12 +33,28 @@ echo "<title>Page Title</title>"
 echo "</head>"
 echo "<body>"
 
-echo "<h1>My First Heading</h1>"
-echo "<p>My first paragraph.</p>"
+echo "<h1>Mater Branch</h1>"
+echo "<p>This is from Master Branch.</p>"
 
 echo "</body>"
 echo "</html>"
-} > /var/lib/jenkins/workspace/master.html
+} > /var/jenkins_home/workspace/master.html
+elif [[ $job_base_name == "qa" ]]
+then
+{
+echo "<!DOCTYPE html>"
+echo "<html>"
+echo "<head>"
+echo "<title>Page Title</title>"
+echo "</head>"
+echo "<body>"
+
+echo "<h1>QA Branch</h1>"
+echo "<p>This is from QA Branch.</p>"
+
+echo "</body>"
+echo "</html>"
+} > /var/jenkins_home/workspace/${file_name}.html
 fi
  
 

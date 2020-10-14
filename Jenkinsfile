@@ -43,11 +43,11 @@ pipeline {
        				sh ''' echo ${filename} '''
 				emailext(
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
-				body: '${FILE, path="/var/lib/jenkins/workspace/develop.html"}',
+				body: '${FILE, path="/var/jenkins_home/workspace/\"${filename}\".html"}',
 				to: "sreekanthtagirise@gmail.com",
 				mimeType: "text/html"
 				)
-				sh ''' rm /var/lib/jenkins/workspace/develop.html'''
+				sh ''' rm /var/jenkins_home/workspace/\"${filename}\".html'''
 				}
 			}
 		     }
@@ -57,11 +57,11 @@ pipeline {
 				if(env.BRANCH_NAME == "master") {
 					emailext(
 					subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
-					body: '${FILE,path="/var/lib/jenkins/workspace/master.html"}',
+					body: '${FILE,path="/var/jenkins_home/workspace/\"${filename}\".html"}',
 					to: "sreekanthtagirise@gmail.com",
 					mimeType: 'text/html'
 					)
-				sh ''' rm /var/lib/jenkins/workspace/master.html'''
+				sh ''' rm /var/jenkins_home/workspace/\"${filename}\".html'''
 				}
 			}
                     }
