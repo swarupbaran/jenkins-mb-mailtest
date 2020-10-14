@@ -44,7 +44,7 @@ pipeline {
 				emailext(
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
 				body: '${FILE, path="/var/jenkins_home/workspace/\"${filename}\".html"}',
-				to: "sreekanthtagirise@gmail.com",
+				to: "swarup.baran@lamresearch.com",
 				mimeType: "text/html"
 				)
 				sh ''' rm /var/jenkins_home/workspace/\"${filename}\".html'''
