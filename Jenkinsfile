@@ -24,6 +24,7 @@ pipeline {
                 sh '''
                       echo "Hello develop branch"           
                       echo $JOB_BASE_NAME
+                      echo ${WORKSPACE}
                       echo $filename
                       echo $GIT_REPO_NAME
                       echo "HELLO"
