@@ -28,7 +28,7 @@ pipeline {
                       echo ${WORKSPACE}
                       echo $filename
                       echo $GIT_REPO_NAME
-                      echo "HELLO"
+                      echo "HELLO VARIABLE COMING"
 		      echo ${variable}
                    '''    
             }
