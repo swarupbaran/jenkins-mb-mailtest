@@ -47,8 +47,8 @@ pipeline {
 				sh 'echo "my base path is ${basePath} and my filename is ${filename}"'
 				emailext(
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
-				body: "${FILE, path=$variable}",
-					
+				//body: "${FILE, path=$variable}",
+				body: '''${SCRIPT, template="my-email.template"}''',
 				to: "swarup.baran@lamresearch.com",
 				mimeType: "text/html"
 				)
