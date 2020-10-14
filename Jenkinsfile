@@ -43,11 +43,11 @@ pipeline {
        				sh ''' echo ${filename} '''
 				emailext(
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
-				body: '${FILE, path="/var/jenkins_home/workspace/\"${filename}\".html"}',
+				body: '${FILE, path="/home/jenkins/\"${filename}\".html"}',
 				to: "swarup.baran@lamresearch.com",
 				mimeType: "text/html"
 				)
-				sh ''' rm /var/jenkins_home/workspace/\"${filename}\".html'''
+				sh ''' rm /home/jenkins/\"${filename}\".html'''
 				}
 			}
 		     }
