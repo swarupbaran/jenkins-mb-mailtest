@@ -30,22 +30,22 @@ pipeline {
                       echo $filename
                       echo $GIT_REPO_NAME
                       echo "HELLO VARIABLE COMING"
-		      echo ${variable}
+		      echo ${fullFileName}
                    '''    
             }
     }
 }
 	post{
 		always{
-                        sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" \"${fullFileName}\" """    
+                        sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" \"${filename}\" """    
 		}
                 success{
                       script {
 			if(env.GIT_REPO_NAME == "jenkins-mb-mailtest"){
 				if(env.BRANCH_NAME == "develop") {
-       				sh ' echo "${variable}" '
-				sh 'echo "my full path is ${variable}"'
-				sh 'emailFileContent=$(cat ${variable})'
+       				
+				sh 'echo "my full path is ${fullFileName}"'
+				sh 'echo cat ${fullFileName}'
 				sh  'echo "my content is $emailFileContent"'
 				emailext(
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
