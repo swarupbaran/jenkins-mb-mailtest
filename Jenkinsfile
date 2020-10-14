@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         filename = sh(script: "cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1", returnStdout: true).trim()	
-	basePath = '"/home/jenkins/"'
+	basePath = '/home/jenkins/'
 	variable = "$basePath" + "$filename" + ".html"
         GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
     }
