@@ -22,7 +22,7 @@ echo "<p>This is from Develop Branch</p>"
 
 echo "</body>"
 echo "</html>"
-} > /home/jenkins/${file_name}.html
+} > ${file_name}
 elif [[ $job_base_name == "master" ]]
 then
 {
