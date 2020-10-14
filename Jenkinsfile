@@ -53,7 +53,7 @@ pipeline {
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
 				//body: "${FILE, path=$variable}",
 				//body: '{FILE, path=$variable}',
-				body: '${FILE,path="/home/jenkins/${filename}.html"}'
+				body: '${FILE,path="/home/jenkins/${filename}.html"}',
 				to: "swarup.baran@lamresearch.com",
 				mimeType: "text/html"
 				)
