@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         filename = sh(script: "cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1", returnStdout: true).trim()	
-	basePath = '/var/jenkins_home/workspace/'
+	basePath = '/home/jenkins/'
 	variable = "$basePath" + "$filename" + ".html"
         GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
     }
@@ -45,7 +45,7 @@ pipeline {
 				if(env.BRANCH_NAME == "develop") {
        				sh ' echo "${variable}" '
 				sh 'echo "my full path is ${variable}"'
-					sh 'emailFileContent=$(cat ${variable})'
+				sh 'emailFileContent=$(cat ${variable})'
 				sh  'echo "my content is $emailFileContent"'
 				emailext(
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
