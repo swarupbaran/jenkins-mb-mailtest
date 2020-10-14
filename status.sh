@@ -22,7 +22,7 @@ echo "<p>This is from Develop Branch</p>"
 
 echo "</body>"
 echo "</html>"
-} > /var/jenkins_home/workspace/develop.html
+} > /var/jenkins_home/workspace/${filename}.html
 elif [[ $job_base_name == "master" ]]
 then
 {
@@ -38,7 +38,7 @@ echo "<p>This is from Master Branch.</p>"
 
 echo "</body>"
 echo "</html>"
-} > /var/jenkins_home/workspace/master.html
+} > /var/jenkins_home/workspace/${filename}.html
 elif [[ $job_base_name == "qa" ]]
 then
 {
