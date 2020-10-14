@@ -47,8 +47,8 @@ pipeline {
 				sh 'echo "my full path is ${fullFileName}"'
 				//sh 'echo cat ${fullFileName}'
 				emailFileContent = sh 'cat "/home/jenkins/${filename}.html"'
-				result = readFile("/home/jenkins/${filename}.html").trim()
-				sh  'echo "my content is readFile("/home/jenkins/${filename}.html").trim()}"'
+				FILE_CONTENT = readFile("/home/jenkins/${filename}.html").trim()
+				sh  'echo "my content is ${FILE_CONTENT}"'
 				emailext(
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
 				//body: "${FILE, path=$variable}",
