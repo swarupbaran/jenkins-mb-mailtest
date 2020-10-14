@@ -47,13 +47,13 @@ pipeline {
 				sh 'echo "my full path is ${fullFileName}"'
 				//sh 'echo cat ${fullFileName}'
 				emailFileContent = sh 'cat "/home/jenkins/${filename}.html"'
-				emailFileContent = sh(returnStdout: true, script: 'cat /home/jenkins/${filename}.html')
+				//emailFileContent = sh(returnStdout: true, script: 'cat /home/jenkins/${filename}.html')
 				sh  'echo "my content is ${emailFileContent}"'
 				emailext(
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
 				//body: "${FILE, path=$variable}",
-				body: '{FILE, path=$variable}',
-					
+				//body: '{FILE, path=$variable}',
+				body: '${FILE,path="/home/jenkins/${filename}.html"}'
 				to: "swarup.baran@lamresearch.com",
 				mimeType: "text/html"
 				)
