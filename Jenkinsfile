@@ -3,7 +3,7 @@ pipeline {
     environment {
         filename = sh(script: "cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1", returnStdout: true).trim()	
 	basePath = '/home/jenkins/'
-	variable = "$basePath" + "$filename" + ".html"
+	fullFileName = "$basePath" + "$filename" + ".html"
         GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
     }
     stages {
@@ -37,7 +37,7 @@ pipeline {
 }
 	post{
 		always{
-                        sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" \"${filename}\" """    
+                        sh """./status.sh \"${currentBuild.currentResult}\" \"${JOB_BASE_NAME}\" \"${fullFileName}\" """    
 		}
                 success{
                       script {
