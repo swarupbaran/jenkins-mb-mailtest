@@ -45,7 +45,8 @@ pipeline {
 				if(env.BRANCH_NAME == "develop") {
        				
 				sh 'echo "my full path is ${fullFileName}"'
-				sh 'echo cat ${fullFileName}'
+				//sh 'echo cat ${fullFileName}'
+					sh 'echo cat "/home/jenkins/" + ${filename}'
 				sh  'echo "my content is $emailFileContent"'
 				emailext(
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
