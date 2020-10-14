@@ -47,7 +47,7 @@ pipeline {
 				sh 'echo "my full path is ${fullFileName}"'
 				//sh 'echo cat ${fullFileName}'
 				emailFileContent = sh 'cat "/home/jenkins/${filename}.html"'
-				fullPath='"/home/jenkins/${filename}.html"'
+				def fullPath="/home/jenkins/${filename}.html"
 				sh 'echo ${fullPath}'
 				//emailFileContent = sh(returnStdout: true, script: 'cat /home/jenkins/${filename}.html')
 				sh  'echo "my content is ${emailFileContent}"'
