@@ -5,6 +5,7 @@ pipeline {
 	basePath = '/home/jenkins/'
 	fullFileName = "$basePath" + "$filename" + ".html"
         GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
+	emailFileContent = ""
     }
     stages {
         stage ('Compile Stage') {
@@ -49,7 +50,7 @@ pipeline {
 				emailFileContent = sh 'cat "/home/jenkins/${filename}.html"'
 				def fullPath="/home/jenkins/${filename}.html"
 				sh 'echo ${fullPath}'
-				//emailFileContent = sh(returnStdout: true, script: 'cat /home/jenkins/${filename}.html')
+				//def emailFileContent = sh(returnStdout: true, script: 'cat /home/jenkins/${filename}.html')
 				sh  'echo "my content is ${emailFileContent}"'
 				emailext(
 				subject: "[Jenkins Build, ${JOB_NAME}, ${currentBuild.result}] Build #${BUILD_ID}",
