@@ -3,7 +3,7 @@ pipeline {
     environment {
         filename = sh(script: "cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1", returnStdout: true).trim()	
 	basePath = '/home/jenkins/'
-	    fullFileName = "$basePath" + \"${filename}\" + ".html"
+	    //fullFileName = "$basePath" + \"${filename}\" + ".html" \"${filename}\"
         GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
 	emailFileContent = ""
     }
@@ -45,11 +45,11 @@ pipeline {
 			if(env.GIT_REPO_NAME == "jenkins-mb-mailtest"){
 				if(env.BRANCH_NAME == "develop") {
        				
-				sh 'echo "my full path is ${fullFileName}"'
+				//sh 'echo "my full path is ${fullFileName}"'
 				//sh 'echo cat ${fullFileName}'
 				emailFileContent = sh 'cat "/home/jenkins/${filename}.html"'
-				def fullPath="/home/jenkins/${filename}.html"
-				sh 'echo ${fullPath}'
+				fullPath="/home/jenkins/${filename}.html"
+				sh 'echo "my full path is ${fullPath}"'
 				//def emailFileContent = sh(returnStdout: true, script: 'cat /home/jenkins/${filename}.html')
 				sh  'echo "my content is ${emailFileContent}"'
 				emailext(
